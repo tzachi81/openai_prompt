@@ -1,6 +1,7 @@
-const { model, prompt, parser } = require('./model.config');
+const { model } = require('./model.config');
+const { prompt } = require('./ask.config');
 
-const promptFunc = async (input) => {
+const promptFunc = async (input, parser) => {
   
   try {
     // Format the prompt with the user input

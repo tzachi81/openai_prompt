@@ -1,12 +1,5 @@
 const { PromptTemplate } = require("@langchain/core/prompts");
 const { StructuredOutputParser } = require("langchain/output_parsers");
-const { OpenAI } = require("@langchain/openai");
-
-const model = new OpenAI({ 
-  openAIApiKey: process.env.OPENAI_API_KEY,
-  temperature: 0,
-  model: 'gpt-3.5-turbo'
-});
 
 const parser = StructuredOutputParser.fromNamesAndDescriptions({
   code: "JavaScript code that answers the user's question",
@@ -22,4 +15,4 @@ const prompt = new PromptTemplate({
   partialVariables: { format_instructions: formatInstructions }
 });
 
-module.exports = {model, parser, prompt};
+module.exports = { parser, prompt };
